@@ -1,0 +1,74 @@
+<head>
+  <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+     <title> Flash Card Demo </title>
+</head>
+<body>
+  <div class="instructions">
+  <h1>Simple English Flash Card Project</h1>
+  <h2>Instructions:</h2>
+  <ol>
+    <li>Click on "Show" for the answer.</li>
+    <li>Click on the word below for the pronunciation.</li>
+    <li>Click on "Hide" to reset the card.</li>
+  </ol>
+</div>
+  <div class="container">
+    <div class="card">
+      <div><img src="img/apple.png" alt="red apple"></div>
+      <button class="card-button">Show</button>
+      <button class="card-answer" onhover="" onclick="appleSnd.play()">apple</button>
+    </div>
+    <div class="card">
+      <div><img src="img/dog.png" alt="brown dog"></div>
+      <button class="card-button">Show</button>
+      <button class="card-answer" onclick="dogSnd.play()">dog</button>
+    </div>
+    <div class="card">
+      <div><img src="img/chair.png" alt="brown chair"></div>
+      <button class="card-button">Show</button>
+      <button class="card-answer" onclick="chairSnd.play()">chair</button>
+    </div>
+    <div class="card">
+      <div><img src="img/city.png" alt="city"></div>
+      <button class="card-button">Show</button>
+      <button class="card-answer" onclick="citySnd.play()">city</button>
+    </div>
+  </div>
+<script>
+let appleSnd = new Audio('audio/apple.m4a');
+let dogSnd = new Audio('audio/dog.m4a');
+let chairSnd = new Audio('audio/chair.m4a');
+let citySnd = new Audio('audio/city.m4a');
+
+
+
+let cards = document.getElementsByClassName('card');
+    for (let cardIndex in cards) {
+      let button = cards[cardIndex].querySelector('.card-button');
+      button.addEventListener('click', function(event){
+        let currentButton = event.target;
+        let currentCard = currentButton.parentNode;
+        let currentAnswer = currentCard.querySelector('.card-answer');
+        if (currentButton.innerHTML == 'Show') {
+          currentAnswer.style.display = 'Block';
+          currentButton.innerHTML = 'Hide';
+        } else if (currentButton.innerHTML == 'Hide') {
+          currentAnswer.style.display = 'None';
+          currentButton.innerHTML = 'Show';
+        }
+      })
+    }
+
+    document.getElementById('.card-answer').addEventListener('mouseover', function(event) {
+      event.target.style.backgroundColor = '0000ff';
+    })
+    
+    document.getElementById('.card-answer').addEventListener('mouseout', function(event) {
+      event.target.style.backgroundColor = '00ff00';
+    })
+
+</script>
+
+</body>
