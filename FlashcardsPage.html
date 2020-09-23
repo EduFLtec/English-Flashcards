@@ -18,31 +18,31 @@
     <div class="card">
       <div><img src="img/apple.png" alt="red apple"></div>
       <button class="card-button">Show</button>
-      <button class="card-answer" onhover="" onclick="appleSnd.play()">apple</button>
+      <button class="card-answer" onclick="flashSnd[0].play();">apple</button>
     </div>
     <div class="card">
       <div><img src="img/dog.png" alt="brown dog"></div>
       <button class="card-button">Show</button>
-      <button class="card-answer" onclick="dogSnd.play()">dog</button>
+      <button class="card-answer" onclick="flashSnd[1].play()">dog</button>
     </div>
     <div class="card">
       <div><img src="img/chair.png" alt="brown chair"></div>
       <button class="card-button">Show</button>
-      <button class="card-answer" onclick="chairSnd.play()">chair</button>
+      <button class="card-answer" onclick="flashSnd[2].play()">chair</button>
     </div>
     <div class="card">
       <div><img src="img/city.png" alt="city"></div>
       <button class="card-button">Show</button>
-      <button class="card-answer" onclick="citySnd.play()">city</button>
+      <button class="card-answer" onclick="flashSnd[3].play()">city</button>
     </div>
   </div>
 <script>
-let appleSnd = new Audio('audio/apple.m4a');
-let dogSnd = new Audio('audio/dog.m4a');
-let chairSnd = new Audio('audio/chair.m4a');
-let citySnd = new Audio('audio/city.m4a');
-
-
+let flashSnd = [
+  new Audio('audio/apple.m4a'), 
+  new Audio('audio/dog.m4a'),
+  new Audio('audio/chair.m4a'),
+  new Audio('audio/city.m4a')
+]
 
 let cards = document.getElementsByClassName('card');
     for (let cardIndex in cards) {
@@ -60,14 +60,6 @@ let cards = document.getElementsByClassName('card');
         }
       })
     }
-
-    document.getElementById('.card-answer').addEventListener('mouseover', function(event) {
-      event.target.style.backgroundColor = '0000ff';
-    })
-    
-    document.getElementById('.card-answer').addEventListener('mouseout', function(event) {
-      event.target.style.backgroundColor = '00ff00';
-    })
 
 </script>
 
