@@ -32,6 +32,7 @@ body{
   text-align: center;
   font-weight: bold;
   border: 2px solid #008800;
+  display:none;
 }
 
 .card-button {
@@ -42,6 +43,8 @@ body{
   font-weight: bold;
 }
 
-.card-answer{
-  display:none;
+button:hover {
+  background-color: #66bfbf;
 }
+
+
